@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Production build outputs
+client/dist/
+dist/
+
+# Local env files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+server/.env
+
+# Temporary / OS files
+.DS_Store
+Thumbs.db
+*.log
+
+# Agent files
+.gemini/
+.agents/
+.system_generated/
+C:\Users\tejas\.gemini\
+C:/Users/tejas/.gemini/
+mcp/
+mcp.json
+mcp-servers/
+tasks/
+logs/
+walkthrough.md
+implementation_plan.md
+task.md

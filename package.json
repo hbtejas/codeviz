@@ -1,0 +1,16 @@
+{
+  "name": "codeviz-monorepo",
+  "version": "1.0.0",
+  "description": "CodeViz Animated Code & DSA Visualizer Monorepo",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "build:client": "npm run build --prefix client",
+    "build:server": "npm run build --prefix server",
+    "start:client": "npm run dev --prefix client",
+    "start:server": "npm run dev --prefix server"
+  }
+}
