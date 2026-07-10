@@ -23,6 +23,14 @@ const io = new Server(server, {
 app.set('io', io);
 
 // ─── Middleware ────────────────────────────────────────────────────────────────
+// Prefix wrapper middleware to support Vercel serverless prefix stripping
+app.use((req, res, next) => {
+  if (!req.url.startsWith('/api')) {
+    req.url = '/api' + req.url;
+  }
+  next();
+});
+
 app.use(helmet({ contentSecurityPolicy: false }));
 app.use(cors({ origin: ['http://localhost:5173', 'http://127.0.0.1:5173'] }));
 app.use(express.json({ limit: '100kb' }));
