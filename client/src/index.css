@@ -1,7 +1,9 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* ─── Relume Design Tokens (inlined from @relume_io/relume-tailwind) ────────── */
-@theme {
+/* ─── Relume Design Tokens ────────────────────────────────────────────────── */
+:root {
   /* Colors */
   --color-background: #060913;
   --color-background-primary: #0a0f24;
@@ -55,12 +57,6 @@
   /* Spacing (extend) */
   --spacing-18: 4.5rem;
   --spacing-30: 7.5rem;
-
-  /* Breakpoints */
-  --breakpoint-sm: 480px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 992px;
-  --breakpoint-xl: 1280px;
 }
 
 /* ─── Relume / Logo3 infinite scroll animation ─────────────────────────────── */
@@ -74,21 +70,21 @@
   100% { opacity: 1; transform: translateY(0); }
 }
 
-@utility animate-loop-horizontally {
+.animate-loop-horizontally {
   animation: loop-horizontally 20s linear infinite;
 }
 
-@utility animate-tabs {
+.animate-tabs {
   animation: tabs 0.3s ease forwards;
 }
 
 /* No-scrollbar utility */
-@utility no-scrollbar {
+.no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
-  &::-webkit-scrollbar {
-    display: none;
-  }
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 /* ─── Design Tokens (dark theme for functional pages) ──────────────────────── */
