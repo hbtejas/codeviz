@@ -65,15 +65,21 @@ mongoose
 
 
 // ─── Start server ─────────────────────────────────────────────────────────────
-const PORT = process.env.PORT || 3001;
-server.listen(PORT, () => {
-  console.log(`[CodeViz Server] Running on http://localhost:${PORT}`);
-});
+if (require.main === module) {
+  const PORT = process.env.PORT || 3001;
+  server.listen(PORT, () => {
+    console.log(`[CodeViz Server] Running on http://localhost:${PORT}`);
+  });
+}
 
 // Graceful shutdown
-process.on('SIGTERM', () => {
-  server.close(() => {
-    mongoose.connection.close();
-    process.exit(0);
+if (require.main === module) {
+  process.on('SIGTERM', () => {
+    server.close(() => {
+      mongoose.connection.close();
+      process.exit(0);
+    });
   });
-});
+}
+
+module.exports = app;

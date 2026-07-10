@@ -5,7 +5,7 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "https://codeviz-server.onrender.com/api/:path*"
+      "destination": "/api/index.js"
     },
     {
       "source": "/(.*)",
