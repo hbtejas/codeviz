@@ -23,14 +23,6 @@ const io = new Server(server, {
 app.set('io', io);
 
 // ─── Middleware ────────────────────────────────────────────────────────────────
-// Prefix wrapper middleware to support Vercel serverless prefix stripping
-app.use((req, res, next) => {
-  if (!req.url.startsWith('/api')) {
-    req.url = '/api' + req.url;
-  }
-  next();
-});
-
 app.use(helmet({ contentSecurityPolicy: false }));
 app.use(cors({ origin: ['http://localhost:5173', 'http://127.0.0.1:5173'] }));
 app.use(express.json({ limit: '100kb' }));
@@ -41,16 +33,16 @@ const executeLimiter = rateLimit({
   max: 20,
   message: { error: 'Too many execution requests. Please wait a moment.' },
 });
-app.use('/api/execute', executeLimiter);
+app.use(['/api/execute', '/execute', '/api/index.js/execute', '/api/index/execute'], executeLimiter);
 
 // ─── Routes ───────────────────────────────────────────────────────────────────
-app.use('/api/execute', executeRoute);
-app.use('/api/snippets', snippetsRoute);
-app.use('/api/dsa-examples', dsaExamplesRoute);
-app.use('/api/problems', problemsRoute);
-app.use('/api/explain', explainRoute);
+app.use(['/api/execute', '/execute', '/api/index.js/execute', '/api/index/execute'], executeRoute);
+app.use(['/api/snippets', '/snippets', '/api/index.js/snippets', '/api/index/snippets'], snippetsRoute);
+app.use(['/api/dsa-examples', '/dsa-examples', '/api/index.js/dsa-examples', '/api/index/dsa-examples'], dsaExamplesRoute);
+app.use(['/api/problems', '/problems', '/api/index.js/problems', '/api/index/problems'], problemsRoute);
+app.use(['/api/explain', '/explain', '/api/index.js/explain', '/api/index/explain'], explainRoute);
 
-app.get('/api/health', (req, res) => res.json({ status: 'ok', time: new Date().toISOString() }));
+app.get(['/api/health', '/health', '/api/index.js/health', '/api/index/health'], (req, res) => res.json({ status: 'ok', time: new Date().toISOString() }));
 
 // ─── Socket.io events ─────────────────────────────────────────────────────────
 io.on('connection', (socket) => {
