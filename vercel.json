@@ -1,4 +1,7 @@
 {
+  "buildCommand": "npm run build --prefix client",
+  "outputDirectory": "client/dist",
+  "cleanUrls": true,
   "rewrites": [
     {
       "source": "/api/:path*",
