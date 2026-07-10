@@ -25,7 +25,7 @@ export const AIStepExplainer: React.FC = () => {
           totalSteps: trace.length,
         });
         setExplanation(response.data.explanation);
-      } catch (err) {
+      } catch {
         setExplanation('Failed to generate step explanation.');
       } finally {
         setLoading(false);

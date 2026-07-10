@@ -47,7 +47,7 @@ export const VisualizerPanel: React.FC = () => {
     }
     // Fallback: look for any array that contains arrays or is a number array of length >= 5
     if (!dpData) {
-      for (const [k, v] of Object.entries(step.variables)) {
+      for (const v of Object.values(step.variables)) {
         if (Array.isArray(v) && v.length > 0) {
           dpData = v;
           break;

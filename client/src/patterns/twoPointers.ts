@@ -1,4 +1,3 @@
-import type { TraceStep } from '../types';
 import type { PatternPlugin, AnnotationMap, CellPointer } from './types';
 
 /**
@@ -51,7 +50,6 @@ export const twoPointersPlugin: PatternPlugin = {
     if (firstStep && lastStep) {
       const { left: lk, right: rk, arrayVar } = findPointerVars(firstStep.variables);
       if (lk && rk && arrayVar) {
-        const arr = firstStep.variables[arrayVar] as unknown[];
         const firstL = firstStep.variables[lk] as number;
         const firstR = firstStep.variables[rk] as number;
         const lastL = lastStep.variables[lk] as number ?? firstL;
@@ -64,7 +62,7 @@ export const twoPointersPlugin: PatternPlugin = {
     return Math.min(1, score);
   },
 
-  annotateStep(step, prevStep) {
+  annotateStep(step, _prevStep) {
     const { left: lk, right: rk, arrayVar } = findPointerVars(step.variables);
     const cellStates: AnnotationMap['cellStates'] = {};
     const pointers: CellPointer[] = [];

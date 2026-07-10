@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import {
-  Play, Pause, SkipForward, SkipBack, RotateCcw,
+  Play, Pause, RotateCcw,
   Zap, ChevronLeft, ChevronRight, Share2, Save,
 } from 'lucide-react';
 import { useExecutionStore } from '../../store/useExecutionStore';

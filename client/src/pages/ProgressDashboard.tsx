@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Award, Sparkles, Flame, CheckSquare, Trash2 } from 'lucide-react';
+import { ArrowLeft, Award, Flame, CheckSquare, Trash2 } from 'lucide-react';
 import { useProgressStore } from '../store/useProgressStore';
 import { SharedNavbar } from '../components/SharedNavbar';
 import {

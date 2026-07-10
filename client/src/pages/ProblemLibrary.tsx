@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  BookOpen, Layers, CheckCircle2, ChevronRight, RefreshCw, Cpu
+  CheckCircle2, ChevronRight, RefreshCw
 } from 'lucide-react';
 import { useProgressStore } from '../store/useProgressStore';
 import { SharedNavbar } from '../components/SharedNavbar';

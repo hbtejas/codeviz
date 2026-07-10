@@ -58,8 +58,6 @@ export const CompareMode: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [leftSteps, setLeftSteps] = useState<number>(0);
   const [rightSteps, setRightSteps] = useState<number>(0);
-  const [leftOut, setLeftOut] = useState<string>('');
-  const [rightOut, setRightOut] = useState<string>('');
 
   const runComparison = async () => {
     setLoading(true);
@@ -70,8 +68,6 @@ export const CompareMode: React.FC = () => {
       ]);
       setLeftSteps(resLeft.data.totalSteps);
       setRightSteps(resRight.data.totalSteps);
-      setLeftOut(resLeft.data.finalOutput);
-      setRightOut(resRight.data.finalOutput);
     } catch (err) {
       console.error('Error running comparison:', err);
     } finally {
@@ -82,8 +78,6 @@ export const CompareMode: React.FC = () => {
   const resetComparison = () => {
     setLeftSteps(0);
     setRightSteps(0);
-    setLeftOut('');
-    setRightOut('');
   };
 
   return (

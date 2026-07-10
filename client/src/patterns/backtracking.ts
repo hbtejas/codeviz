@@ -1,4 +1,3 @@
-import type { TraceStep } from '../types';
 import type { PatternPlugin, AnnotationMap } from './types';
 
 /**
@@ -41,7 +40,7 @@ export const backtrackingPlugin: PatternPlugin = {
     return 0;
   },
 
-  annotateStep(step, prevStep) {
+  annotateStep(step, _prevStep) {
     const cellStates: AnnotationMap['cellStates'] = {};
     let desc = 'Backtracking search active';
 

@@ -1,4 +1,3 @@
-import type { TraceStep } from '../types';
 import type { PatternPlugin, AnnotationMap, CellPointer, WindowRange } from './types';
 
 /**

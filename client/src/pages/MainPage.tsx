@@ -5,7 +5,6 @@ import { PlaybackControls } from '../components/Controls/PlaybackControls';
 import { VisualizerPanel } from '../components/Visualizer/VisualizerPanel';
 import { useExecutionStore } from '../store/useExecutionStore';
 import { Share2, X, Check } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import { SharedNavbar } from '../components/SharedNavbar';
 
 export const MainPage: React.FC = () => {

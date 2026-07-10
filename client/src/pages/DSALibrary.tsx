@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
+
 import {
-  Code2, Play, Pause, RotateCcw, ChevronLeft, ChevronRight,
-  BarChart2, Search, GitBranch, Cpu, Layers, ArrowLeft,
+  Play, Pause, RotateCcw, ChevronLeft, ChevronRight,
+  BarChart2, Search, GitBranch, Cpu, ArrowLeft,
 } from 'lucide-react';
 import { SharedNavbar } from '../components/SharedNavbar';
 

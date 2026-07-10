@@ -4,6 +4,13 @@ import { Button } from "@relume_io/relume-ui";
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useState } from "react";
 import { RxChevronRight } from "react-icons/rx";
+import clsx from "clsx";
+
+const Dialog = ({ children }) => <>{children}</>;
+const DialogTrigger = ({ children, className }) => <div className={className}>{children}</div>;
+const DialogContent = ({ children }) => <div>{children}</div>;
+const VideoIframe = ({ video }) => <div>{video}</div>;
+const FaCirclePlay = ({ className }) => <div className={className}>Play</div>;
 
 const TabItem = () => {
   if (index !== activeTab) {

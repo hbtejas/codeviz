@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
-  Code2, BookOpen, Layers, Sparkles, Terminal, Activity, Zap, Play, CheckCircle
+  Code2, Layers, Sparkles, Terminal, Activity
 } from 'lucide-react';
 
 export const LandingPage: React.FC = () => {

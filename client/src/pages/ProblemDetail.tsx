@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
-import { motion } from 'framer-motion';
+
 import { CodeEditor } from '../components/Editor/CodeEditor';
 import { PlaybackControls } from '../components/Controls/PlaybackControls';
 import { VisualizerPanel } from '../components/Visualizer/VisualizerPanel';
@@ -9,7 +9,7 @@ import { HintLadder } from '../components/HintLadder';
 import { AIStepExplainer } from '../components/AIStepExplainer';
 import { useExecutionStore } from '../store/useExecutionStore';
 import { useProgressStore } from '../store/useProgressStore';
-import { ArrowLeft, BookOpen, Layers, CheckCircle2, ChevronRight } from 'lucide-react';
+import { ArrowLeft, CheckCircle2 } from 'lucide-react';
 import { SharedNavbar } from '../components/SharedNavbar';
 
 interface Problem {
@@ -35,13 +35,12 @@ interface Problem {
 
 export const ProblemDetail: React.FC = () => {
   const { problemId } = useParams<{ problemId: string }>();
-  const navigate = useNavigate();
   
   const [problem, setProblem] = useState<Problem | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
-  const { setCode, setLanguage, trace, execError, finalOutput } = useExecutionStore();
+  const { setCode, setLanguage, trace, execError } = useExecutionStore();
   const { solveProblem, solvedProblems } = useProgressStore();
 
   useEffect(() => {
@@ -56,7 +55,7 @@ export const ProblemDetail: React.FC = () => {
         // Prepopulate editor
         setLanguage('javascript');
         setCode(prob.starterCode.javascript || '');
-      } catch (err) {
+      } catch {
         setError(true);
       } finally {
         setLoading(false);

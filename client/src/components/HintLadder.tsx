@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { HelpCircle, ChevronDown, ChevronUp } from 'lucide-react';
+import { HelpCircle } from 'lucide-react';
 
 interface HintLadderProps {
   patterns: string[];
   description: string;
 }
 
-export const HintLadder: React.FC<HintLadderProps> = ({ patterns, description }) => {
+export const HintLadder: React.FC<HintLadderProps> = ({ patterns, description: _description }) => {
   const [level, setLevel] = useState(0);
 
   const hints = [
